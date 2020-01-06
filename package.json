@@ -1,0 +1,31 @@
+{
+  "name": "transform.components",
+  "version": "0.0.1",
+  "description": "Base components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "styleguidist server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewmarkham/Transform.Components.git"
+  },
+  "author": "Andrew Markham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewmarkham/Transform.Components/issues"
+  },
+  "homepage": "https://github.com/andrewmarkham/Transform.Components#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "babel-loader": "^8.0.6",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-styleguidist": "^10.4.1",
+    "webpack": "^4.41.5"
+  }
+}
