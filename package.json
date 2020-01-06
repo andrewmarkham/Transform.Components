@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
     "start": "styleguidist server"
   },
   "repository": {
@@ -26,6 +27,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-styleguidist": "^10.4.1",
-    "webpack": "^4.41.5"
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   }
 }
