@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "start": "styleguidist server"
+    "storybook": "start-storybook"
   },
   "repository": {
     "type": "git",
@@ -18,17 +18,20 @@
     "url": "https://github.com/andrewmarkham/Transform.Components/issues"
   },
   "homepage": "https://github.com/andrewmarkham/Transform.Components#readme",
-  "dependencies": {},
+  "dependencies": {
+    "styled-components": "^4.4.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
+    "@storybook/addon-actions": "^5.2.8",
+    "@storybook/react": "^5.2.8",
     "babel-loader": "^8.0.6",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.17.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-styleguidist": "^10.4.1",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   }
