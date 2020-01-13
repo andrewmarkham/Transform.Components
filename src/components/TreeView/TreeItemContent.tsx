@@ -1,7 +1,8 @@
 import  React, { FunctionComponent }  from 'react';
+import { ITreeviewDataItem } from './TreeItem';
 
 export type TreeItemContentProps = {
-    node: any
+    node: ITreeviewDataItem
 }
 
 export const TreeItemContent: FunctionComponent<TreeItemContentProps> = (props) => {

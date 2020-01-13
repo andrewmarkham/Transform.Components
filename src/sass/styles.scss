@@ -11,3 +11,17 @@ div.treeview-container {
     height: 10px;
     margin-right: 5px;;
 }
+
+ul.treeView {
+    list-style: none;
+    padding-left: 15px;
+
+    ul {
+        padding-left: 15px;
+    }
+
+    li {
+        list-style: none;
+    }
+
+}

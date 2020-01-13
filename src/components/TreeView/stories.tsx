@@ -2,7 +2,8 @@ import React from 'react';
 import { TreeNode } from './TreeNode';
 import { TreeView } from './TreeView';
 
-import testdata from './data/testdata.json';
+import testdata  from './data/testdata.json';
+import { ITreeviewDataItem } from './TreeItem';
 
 export default {
   title: 'Treeview',
@@ -10,4 +11,4 @@ export default {
   includeStories: ['SimpleStory']
 }
 
-export const SimpleStory = () => <TreeView node={testdata}></TreeView>;
+export const SimpleStory = () => <TreeView node={testdata as ITreeviewDataItem}></TreeView>;
