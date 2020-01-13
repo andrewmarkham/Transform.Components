@@ -1,27 +1,61 @@
+
 import typescript from 'rollup-plugin-typescript2'
+ 
+import postcss from 'rollup-plugin-postcss';
+
 import pkg from './package.json'
 
-export default {
-    input: 'src/index.ts',
-    output: [
-      {
-        file: pkg.main,
-        format: 'cjs',
-      },
-      {
-        file: pkg.module,
-        format: 'es',
-      },
-    ],
-    external: [
-      ...Object.keys(pkg.dependencies || {}),
-      ...Object.keys(pkg.peerDependencies || {}),
-    ],plugins: [
-      typescript({
-        typescript: require('typescript'),
-      }),
-    ],
-  }
+
+const tsx = {
+  input: 'src/index.ts',
+  output: [
+    {
+      file: pkg.main,
+      format: 'cjs',
+    },
+    {
+      file: pkg.module,
+      format: 'es',
+    },
+  ],
+  external: [
+    ...Object.keys(pkg.dependencies || {}),
+    ...Object.keys(pkg.peerDependencies || {}),
+  ],plugins: [
+
+
+    postcss({
+      extract: true,
+      //modules: true,
+      use: ['sass'],
+    }),
+
+    typescript({
+      typescript: require('typescript'),
+    }),
+  ],
+}
+
+const sass = {
+  input: 'src/sass/styles.scss',
+  output: [
+    {
+      file: 'dist/style.css',
+      format: 'es'
+    },
+  ],
+  plugins: [
+    postcss({
+      extract: true,
+      //modules: true,
+      use: ['sass'],
+    })
+  ]
+}
+export default [
+  tsx,
+  sass
+];
 
 
 /*

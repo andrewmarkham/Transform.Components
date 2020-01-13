@@ -5,5 +5,3 @@ export type ButtonProps = {
 }
 
 export const Button: FunctionComponent<ButtonProps> = ({ title }) => <button>{ title }</button>
-
-//export default Button;
