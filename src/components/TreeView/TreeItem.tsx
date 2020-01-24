@@ -23,8 +23,10 @@ export const TreeItem: FunctionComponent<TreeItemProps> = (props) => {
     }
 
     return (<li className="treeItem" {...props}>
+        <div className="tree-item-action-container">
         <TreeItemAction onClick={handleOnClick}></TreeItemAction>
         <TreeItemContent node={ props.node }></TreeItemContent>
+        </div>
         <TreeNode node={ props.node } expanded={expanded}></TreeNode>
     </li>)
 }
