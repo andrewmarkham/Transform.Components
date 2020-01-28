@@ -8,7 +8,7 @@ export type TreeViewProps = {
 
 export const TreeView: FunctionComponent<TreeViewProps> = (props) => {
 
-    return (<ul className="treeView" {...props}>
+    return (<ul className="tree-view" {...props}>
         <TreeItem node={ props.node }   ></TreeItem>
     </ul>)
 }

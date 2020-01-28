@@ -7,7 +7,7 @@ export type TreeItemContentProps = {
 
 export const TreeItemContent: FunctionComponent<TreeItemContentProps> = (props) => {
 
-    return (<a className="treeItem" href="/" {...props}>
+    return (<a href="/" {...props}>
         { props.node.name }
     </a>)
 }

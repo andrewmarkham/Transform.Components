@@ -1,0 +1,50 @@
+.tree-view {
+  list-style: none;
+  padding-left: 15px;
+
+  ul {
+    display: block;
+    padding-left: 15px;
+    }
+
+  li {
+
+
+    &.tree-item {
+      list-style: none;
+      padding-bottom: 2px;
+      padding-top: 2px;
+    
+      button {
+        border: 0;
+        cursor: pointer;
+        padding: 0;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      i {
+        display: inline-block;
+        transition: .05s transform ease-in-out;
+        vertical-align: middle;
+
+        &.expanded {
+          transform: rotate(90deg);
+        }
+      }
+
+      a {
+        color: #000;
+        display: inline-block;
+        text-decoration: none;
+        vertical-align: middle;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}

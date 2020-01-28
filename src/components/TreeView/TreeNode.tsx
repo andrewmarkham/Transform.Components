@@ -6,19 +6,17 @@ export type TreeviewContainerProps = {
     expanded: Boolean
 }
 
-export const TreeNode: FunctionComponent<TreeviewContainerProps> = (props) => {
+export const TreeNode: FunctionComponent<TreeviewContainerProps> = ({ node, expanded } ) => {
 
-    let { node, expanded } = props;
-      
     let children = node?.children ?? [] as Array<object>;
     
     return (
-    <ul className="treeview-container" {...props}>
+    <ul>
         {
-            children.map( (n: any) => (
-                expanded ? <TreeItem node={n} ></TreeItem> : null
+            children.map( (n: ITreeviewDataItem) => (
+                expanded ? <TreeItem node={n} key={n.id.toString()} ></TreeItem> : null
             ))
         }
- 
+  
     </ul>)
 }

@@ -1,27 +1,8 @@
-div.treeview-container {
-    border: 10px dashed green;
-    padding: 5px;
-    text-align: center;
-}
+@import 'core/normalise';
+@import 'core/variables';
+@import 'atoms/icon';
+@import 'atoms/treeview';
 
-.treeAction {
-    display: inline-block;
-    background-color: blue;
-    width: 10px;
-    height: 10px;
-    margin-right: 5px;;
-}
-
-ul.treeView {
-    list-style: none;
-    padding-left: 15px;
-
-    ul {
-        padding-left: 15px;
-    }
-
-    li {
-        list-style: none;
-    }
-
+* {
+    font-family: $font-family
 }
