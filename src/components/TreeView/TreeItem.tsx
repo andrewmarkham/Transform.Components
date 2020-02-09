@@ -2,32 +2,39 @@ import  React, { FunctionComponent, useState }  from 'react';
 import { TreeItemAction } from './TreeItemAction';
 import { TreeItemContent }from './TreeItemContent';
 import { TreeNode } from './TreeNode';
+import PropTypes from "prop-types";
+import { TreeItemProps } from './props/TreeItemProps';
+import { treeviewNodeType, treeviewNodeDictionaryType } from './types';
 
-export type TreeItemProps = {
-    node: ITreeviewDataItem
-}
+export const TreeItem= ({ currentNode, nodes, requestNodeData }: TreeItemProps) => {
 
-export interface ITreeviewDataItem  {
-    id: number,
-    parentId: number,
-    name: string,
-    expanded: boolean
-}
-
-export const TreeItem: FunctionComponent<TreeItemProps> = (props) => {
-
-    let { node } = props;
+    const [expanded, setExpanded] = useState(currentNode?.expanded as boolean);
     
-    const [expanded, setExpanded] = useState(node?.expanded as boolean);
     function handleOnClick(){
-        //alert("Hello Worldddd");
+
+        if (!expanded && (nodes[currentNode.id] ?? []).length === 0) {
+            requestNodeData(currentNode.id);
+        }
+
         setExpanded(!expanded);
     }
 
-    return (<li className="tree-item" {...props} key={node.id.toString()} >
-        <TreeItemAction node={ props.node } onClick={handleOnClick} expanded={expanded} ></TreeItemAction>
-        <TreeItemContent node={ node }></TreeItemContent>
-        <TreeNode node={ node } expanded={expanded}></TreeNode>
+    return (<li className="tree-item" key={currentNode.id.toString()} >
+        <div className="tree-item-action-container">
+            <TreeItemAction node={ currentNode } onClick={handleOnClick} expanded={expanded} ></TreeItemAction>
+                <TreeItemContent node={ currentNode }></TreeItemContent>
+        </div>
+        <TreeNode nodes={ nodes } currentNode={ currentNode } expanded={expanded} requestNodeData={requestNodeData}></TreeNode>
     </li>)
 }
 
+TreeItem.propTypes = {
+    /** current Treeview node data */
+    currentNode: treeviewNodeType.isRequired,
+
+    /** all of the loaded treeview data */
+    nodes: treeviewNodeDictionaryType.isRequired,
+    
+    /** triggered when requred to load data */
+    requestNodeData: PropTypes.func
+  };

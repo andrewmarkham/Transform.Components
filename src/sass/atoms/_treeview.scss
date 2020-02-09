@@ -1,6 +1,9 @@
 .tree-view {
+  position: relative;
   list-style: none;
   padding-left: 15px;
+
+  width: 40%;
 
   ul {
     display: block;
@@ -19,6 +22,8 @@
         border: 0;
         cursor: pointer;
         padding: 0;
+
+        background-color: transparent;
 
         &:focus {
           outline: none;
@@ -47,4 +52,48 @@
       }
     }
   }
+}
+
+$itemHeight: 22px;
+
+%tree-item-before-block {
+    position: absolute;
+    content: "";
+    height: $itemHeight;
+    left: 0;
+    width: 100%;
+   
+    z-index: -1;
+}
+
+
+div.tree-item-action-container {
+
+    height: $itemHeight;
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    span.treeAction {
+        justify-content: flex-start;
+        
+        background-color: blue;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;;
+    }
+
+    &::before {
+        transition: background-color 0.7s; 
+        @extend %tree-item-before-block;
+    }
+
+    &:hover {
+    &::before {
+        @extend %tree-item-before-block;
+        background-color: rgb(206, 206, 206);
+    }
+}
 }

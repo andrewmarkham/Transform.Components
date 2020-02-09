@@ -1,13 +1,15 @@
 import  React, { FunctionComponent }  from 'react';
-import { ITreeviewDataItem } from './TreeItem';
+import PropTypes from "prop-types";
+import { TreeItemContentProps } from './props/TreeItemContentProps';
+import { treeviewNodeType } from './types';
 
-export type TreeItemContentProps = {
-    node: ITreeviewDataItem
-}
-
-export const TreeItemContent: FunctionComponent<TreeItemContentProps> = (props) => {
-
-    return (<a href="/" {...props}>
-        { props.node.name }
+export const TreeItemContent = ({node}:TreeItemContentProps) => {
+    return (<a href="/">
+        { node.name }
     </a>)
 }
+
+TreeItemContent.propTypes = {
+    /** node for the treeview item */
+    node: treeviewNodeType.isRequired
+  };

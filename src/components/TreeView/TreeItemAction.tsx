@@ -1,17 +1,23 @@
 import  React, { MouseEvent, FunctionComponent }  from 'react';
-import { ITreeviewDataItem } from './TreeItem';
+import PropTypes from "prop-types";
 import { Icon } from '../Icon/Icon';
+import { TreeItemActionProps } from './props/TreeItemActionProps';
+import { treeviewNodeType } from './types';
 
-export type TreeItemActionProps = {
-    node: ITreeviewDataItem,
-    expanded: boolean,
-    onClick(): void
+export const TreeItemAction= ({node, expanded, onClick}: TreeItemActionProps) => {
+
+    let expandedCss = expanded ? "expanded" : "";
+
+    return (<button onClick={onClick}> <Icon name="keyboard_arrow_right" className={expandedCss}></Icon></button>)
 }
 
-export const TreeItemAction: FunctionComponent<TreeItemActionProps> = (props) => {
+TreeItemAction.propTypes = {
+    /** node for the treeview item */
+    node: treeviewNodeType.isRequired,
 
-    let iconName = props.expanded ? "keyboard_arrow_down" : "keyboard_arrow_right";
-    let expandedCss = props.expanded ? "expanded" : "";
-
-    return (<button onClick={props.onClick}> <Icon name="keyboard_arrow_right" className={expandedCss}></Icon></button>)
-}
+    /** indicates whether the node is expanded */
+    expanded: PropTypes.bool.isRequired,
+    
+    /** triggered when node is clicked */
+    onClick: PropTypes.func
+  };
